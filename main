@@ -1,0 +1,14 @@
+length, width = [int(i) for i in input().split()]
+mat = ''
+for i in range(length):
+    mat += input()
+mat = list(mat)
+new_mat = [list('.' * width) for _ in range(length)]
+for i in range(length * width):
+    if mat[i] != '.':
+        n = i//width # n = индекс строки
+        k = i - n * width # k = индекс столбца
+        if mat[i].isalpha() or mat[i] == '_':
+              n += 1
+        new_mat[length - n][width - k - 1] = mat[i]
+[print(''.join(i)) for i in new_mat]
